@@ -37,6 +37,9 @@ public class Pedido implements Serializable {
 	@Column(name = "DESCRICAO")
 	private String desc;
 
+	@Column(name = "CODIGO")
+	private String codigo;
+	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "PRODUTOS_PEDIDOS", catalog = "pdv", joinColumns = 
 	{ 
