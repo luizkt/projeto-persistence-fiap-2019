@@ -14,7 +14,5 @@ public interface ProdutoRepository extends JpaRepository<Produto, Integer>{
 
 	@Query("SELECT p FROM PRODUTO p WHERE p.DESCRICAO = :descricao")
 	public List<Produto> findByName(@Param("descricao") String descricao);
-	
-	
-	
+		
 }

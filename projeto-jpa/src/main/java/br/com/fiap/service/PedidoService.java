@@ -2,6 +2,7 @@ package br.com.fiap.service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,8 +33,8 @@ public class PedidoService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<Pedido> findByName(String nome) {
-		return pedidoRepository.findByName(nome);
+	public Optional<Pedido> findById(int id) {
+		return pedidoRepository.findById(id);
 	}
 	
 }

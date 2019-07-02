@@ -95,9 +95,5 @@ public class Produto implements Serializable {
 
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
-	}
-
-	
-	
-	
+	}	
 }

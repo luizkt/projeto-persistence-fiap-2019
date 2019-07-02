@@ -35,8 +35,6 @@ public class Cliente {
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "IDENDERECO", referencedColumnName = "ID")
 	private Endereco endereco;
-
-	
 	
 	public int getId() {
 		return id;
@@ -77,5 +75,4 @@ public class Cliente {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	
 }
