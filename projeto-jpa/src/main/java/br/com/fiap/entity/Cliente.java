@@ -26,6 +26,8 @@ public class Cliente {
 
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy="cliente")
 	private Set<Pedido> pedidos = new HashSet<>();
+	
+	private String endereco;
 
 	public int getId() {
 		return id;
@@ -58,7 +60,13 @@ public class Cliente {
 	public void setPedidos(Set<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
-	
-	
 
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	
 }

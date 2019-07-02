@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 @ComponentScan("br.com.fiap")
-//@ContextConfiguration("resources/")
 @ImportResource({"classpath*:spring.xml"})
 public class ProjetoJpaApplication {
 

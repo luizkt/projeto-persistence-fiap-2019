@@ -24,7 +24,7 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "PRODUTO", catalog = "pdv", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "CODIGO_PRODUTO") })
 @NamedQuery(name = "Produto.findAll", query = "select p from Produto p")
-public class Produto implements Serializable{
+public class Produto implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -38,7 +38,7 @@ public class Produto implements Serializable{
 	private String desc;
 	
 	@Column(name = "QUANTIDADE")
-	private int quantidade_estoque;
+	private int quantidadeEstoque;
 	
 	@Column(name = "PRECO")
 	private double preco;
@@ -67,12 +67,12 @@ public class Produto implements Serializable{
 		this.desc = desc;
 	}
 
-	public int getQuantidade_estoque() {
-		return quantidade_estoque;
+	public int getQuantidadeEstoque() {
+		return quantidadeEstoque;
 	}
 
-	public void setQuantidade_estoque(int quantidade_estoque) {
-		this.quantidade_estoque = quantidade_estoque;
+	public void setQuantidadeEstoque(int quantidadeEstoque) {
+		this.quantidadeEstoque = quantidadeEstoque;
 	}
 
 	public double getPreco() {
