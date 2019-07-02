@@ -10,7 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cliente {
@@ -20,15 +22,22 @@ public class Cliente {
 	@Column(name = "ID", unique = true, nullable = false)
 	private int id;
 
+	@Column(name = "NOME")
 	private String nome;
 
+	@Column(name = "RG", unique = true)
 	private String rg;
 
+	
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy="cliente")
 	private Set<Pedido> pedidos = new HashSet<>();
 	
-	private String endereco;
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "IDENDERECO", referencedColumnName = "ID")
+	private Endereco endereco;
 
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -61,11 +70,11 @@ public class Cliente {
 		this.pedidos = pedidos;
 	}
 
-	public String getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(String endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
 	
