@@ -34,6 +34,9 @@ public class Produto implements Serializable {
 	@Column(name = "ID", unique = true, nullable = false)
 	private Integer id;
 	
+	@Column(name = "CODIGO")
+	private String codigo;
+	
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "produtos_pedidos")
 	private Set<Pedido> pedidos = new HashSet<>();
 	
@@ -84,6 +87,14 @@ public class Produto implements Serializable {
 
 	public void setPreco(double preco) {
 		this.preco = preco;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 	
