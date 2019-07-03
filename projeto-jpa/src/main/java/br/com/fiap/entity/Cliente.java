@@ -20,7 +20,7 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", unique = true, nullable = false)
-	private int id;
+	private Integer id;
 
 	@Column(name = "NOME")
 	private String nome;
