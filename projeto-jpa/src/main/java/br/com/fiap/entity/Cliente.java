@@ -13,14 +13,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
+@Table(name = "CLIENTE", catalog = "pdv", uniqueConstraints = {
+		@UniqueConstraint(columnNames = "CLIENTE_ID") })
 public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID", unique = true, nullable = false)
-	private Integer id;
+	@Column(name = "CLIENTE_ID", unique = true, nullable = false)
+	private Integer clienteId;
 
 	@Column(name = "NOME")
 	private String nome;
@@ -32,16 +36,16 @@ public class Cliente {
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy="cliente")
 	private Set<Pedido> pedidos = new HashSet<>();
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "IDENDERECO", referencedColumnName = "ID")
-	private Endereco endereco;
+//	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	@JoinColumn(name = "IDENDERECO", referencedColumnName = "ID")
+//	private Endereco endereco;
 	
-	public int getId() {
-		return id;
+	public Integer getClienteId() {
+		return clienteId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setClienteId(Integer clienteId) {
+		this.clienteId = clienteId;
 	}
 
 	public String getNome() {
@@ -68,11 +72,11 @@ public class Cliente {
 		this.pedidos = pedidos;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
+//	public Endereco getEndereco() {
+//		return endereco;
+//	}
+//
+//	public void setEndereco(Endereco endereco) {
+//		this.endereco = endereco;
+//	}
 }

@@ -19,7 +19,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 
 @Table(name = "PRODUTO", catalog = "pdv", uniqueConstraints = {
-		@UniqueConstraint(columnNames = "CODIGO_PRODUTO") })
+		@UniqueConstraint(columnNames = "PRODUTO_ID") })
 @NamedQuery(name = "Produto.findAll", query = "select p from Produto p")
 public class Produto implements Serializable {
 	
@@ -31,8 +31,8 @@ public class Produto implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "ID", unique = true, nullable = false)
-	private Integer id;
+	@Column(name = "PRODUTO_ID", unique = true, nullable = false)
+	private Integer produtoId;
 	
 	@Column(name = "CODIGO")
 	private String codigo;
@@ -49,12 +49,12 @@ public class Produto implements Serializable {
 	@Column(name = "PRECO")
 	private double preco;
 
-	public Integer getId() {
-		return id;
+	public Integer getProdutoId() {
+		return produtoId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setProdutoId(Integer produtoId) {
+		this.produtoId = produtoId;
 	}
 
 	public Set<Pedido> getPedidos() {
