@@ -2,9 +2,9 @@
 
 # Índice
 
-[Integrantes](#integrantes)
-[Modelo do Banco de Dados](#modelo-do-banco-de-dados)
-[Requisitos](#requisitos)
+* [Integrantes](#integrantes)
+* [Modelo do Banco de Dados](#modelo-do-banco-de-dados)
+* [Requisitos](#requisitos)
 
 ## Integrantes
 
