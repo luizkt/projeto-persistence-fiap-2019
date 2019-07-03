@@ -2,15 +2,17 @@
 
 # Índice
 
-[Integrantes](#integrantes)
-[Modelo do Banco de Dados](#modelo-do-banco-de-dados)
-[Requisitos](#requisitos)
+* [Integrantes](#integrantes)
+* [Modelo do Banco de Dados](#modelo-do-banco-de-dados)
+* [Requisitos](#requisitos)
 
 ## Integrantes
 
-* Jhonatan - 
-* Logan Mantovani - RM334335
-* Luiz Keese Tabacow - RM334018
+|Nomes                       |Número de Matricula |
+|----------------------------|--------------------|
+|Jhonatan Oliveira de Guarda |RM333990            |
+|Logan Mantovani             |RM334335            |
+|Luiz Keese Tabacow          |RM334018            |
 
 ## Modelo do Banco de Dados
 
