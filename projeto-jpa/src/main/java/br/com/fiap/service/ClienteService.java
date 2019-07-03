@@ -2,6 +2,7 @@ package br.com.fiap.service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -36,5 +37,10 @@ public class ClienteService {
 	@Transactional(readOnly = true)
 	public List<Cliente> findByName(String nome) {
 		return clienteRepository.findByName(nome);
+	}
+	
+	@Transactional(readOnly = true)
+	public Optional<Cliente> findById(int id) {
+		return clienteRepository.findById(id);
 	}	
 }

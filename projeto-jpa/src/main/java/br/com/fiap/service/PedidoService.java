@@ -38,5 +38,4 @@ public class PedidoService {
 	public Optional<Pedido> findById(int id) {
 		return pedidoRepository.findById(id);
 	}
-	
 }

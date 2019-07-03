@@ -2,11 +2,13 @@ package br.com.fiap.service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.fiap.entity.Cliente;
 import br.com.fiap.entity.Produto;
 import br.com.fiap.repository.ProdutoRepository;
 
@@ -36,5 +38,10 @@ public class ProdutoService {
 	@Transactional(readOnly = true)
 	public List<Produto> findByName(String nome) {
 		return produtoRepository.findByName(nome);
+	}	
+	
+	@Transactional(readOnly = true)
+	public Optional<Produto> findById(int id) {
+		return produtoRepository.findById(id);
 	}	
 }
