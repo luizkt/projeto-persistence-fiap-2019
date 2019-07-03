@@ -36,9 +36,9 @@ public class Cliente {
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy="cliente")
 	private Set<Pedido> pedidos = new HashSet<>();
 	
-//	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//	@JoinColumn(name = "IDENDERECO", referencedColumnName = "ID")
-//	private Endereco endereco;
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "ENDERECO_ID", referencedColumnName = "ENDERECO_ID")
+	private Endereco endereco;
 	
 	public Integer getClienteId() {
 		return clienteId;
@@ -72,11 +72,11 @@ public class Cliente {
 		this.pedidos = pedidos;
 	}
 
-//	public Endereco getEndereco() {
-//		return endereco;
-//	}
-//
-//	public void setEndereco(Endereco endereco) {
-//		this.endereco = endereco;
-//	}
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 }
