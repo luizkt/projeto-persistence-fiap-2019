@@ -30,23 +30,25 @@ public class Pedido implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", unique = true, nullable = false)
 	private Integer id;
-	
+
 	@Column(name = "DESCRICAO")
 	private String desc;
 
 	@Column(name = "CODIGO")
 	private String codigo;
-	
+
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "PRODUTOS_PEDIDOS", catalog = "pdv", joinColumns = 
-	{ 
-		@JoinColumn(name = "PRODUTO_ID", nullable = false, updatable=false) })
+	@JoinTable(name = "PRODUTOS_PEDIDOS", catalog = "pdv", joinColumns = {
+			@JoinColumn(name = "PEDIDO_ID", nullable = false, updatable = false) }, inverseJoinColumns = {
+
+					@JoinColumn(name = "PRODUTO_ID", nullable = false, updatable = false) })
 	private Set<Produto> produtos_pedidos = new HashSet<>();
-	
-	@ManyToOne(fetch=FetchType.LAZY) @JoinColumn(name="IDCLIENTE")
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "IDCLIENTE")
 	private Cliente cliente;
 
 	public Integer getId() {
@@ -83,5 +85,5 @@ public class Pedido implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}	
+	}
 }
