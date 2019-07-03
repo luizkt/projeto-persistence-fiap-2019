@@ -4,11 +4,13 @@ import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fiap.entity.Produto;
 import br.com.fiap.repository.ProdutoRepository;
 
+@Component
 public class ProdutoService {
 
 	@Autowired

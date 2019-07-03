@@ -5,11 +5,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fiap.entity.Pedido;
 import br.com.fiap.repository.PedidoRepository;
 
+@Component
 public class PedidoService {
 
 	@Autowired
