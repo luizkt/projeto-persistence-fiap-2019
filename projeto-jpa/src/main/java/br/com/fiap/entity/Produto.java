@@ -17,7 +17,6 @@ import javax.persistence.UniqueConstraint;
 
 
 @Entity
-
 @Table(name = "PRODUTO", catalog = "pdv", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "PRODUTO_ID") })
 @NamedQuery(name = "Produto.findAll", query = "select p from Produto p")

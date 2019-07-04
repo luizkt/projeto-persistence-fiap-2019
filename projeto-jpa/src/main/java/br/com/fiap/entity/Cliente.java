@@ -1,5 +1,6 @@
 package br.com.fiap.entity;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,7 +20,9 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "CLIENTE", catalog = "pdv", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "CLIENTE_ID") })
-public class Cliente {
+public class Cliente implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
