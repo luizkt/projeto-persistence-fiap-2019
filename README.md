@@ -26,3 +26,6 @@ Trata-se de um sistema de cadastro de produtos e pedidos em um portal de e-comme
 *  Cada produto possui um código, um nome, uma quantidade e um valor.
 *  Cada cliente possui seus dados pessoais e dados de entrega.
 
+## Projeto exemplo
+
+https://github.com/spring-guides/gs-accessing-data-mysql/tree/master/complete/src/main/java/hello

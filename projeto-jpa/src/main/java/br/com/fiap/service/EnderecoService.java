@@ -1,43 +1,61 @@
 package br.com.fiap.service;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.fiap.entity.Endereco;
 import br.com.fiap.repository.EnderecoRepository;
 
-@Component
+@Controller
+@RequestMapping(path = "/endereco")
 public class EnderecoService {
 
 	@Autowired
-	private EnderecoRepository EnderecoRepository;
+	private EnderecoRepository enderecoRepository;
 
 	@Transactional
-	public void add(Endereco Endereco) {
-		EnderecoRepository.save(Endereco);
+	@GetMapping(path = "/add")
+	public @ResponseBody String add(@RequestParam String rua,
+			@RequestParam String bairro, @RequestParam String numero, @RequestParam String cidade,
+			@RequestParam String estado, @RequestParam String cep, @RequestParam String pais) {
+		
+		Endereco endereco = new Endereco();
+		
+		endereco.setRua(rua);
+		endereco.setBairro(bairro);
+		endereco.setNumero(numero);
+		endereco.setCidade(cidade);
+		endereco.setEstado(estado);
+		endereco.setCep(cep);
+		endereco.setPais(pais);
+		
+		enderecoRepository.save(endereco);
+		
+		return "Salvo com sucesso";
 	}
 
 	@Transactional(readOnly = true)
-	public List<Endereco> findAll() {
-		return EnderecoRepository.findAll();
+	@GetMapping(path="/all")
+	public @ResponseBody Iterable<Endereco> getAllUsers() {
+		return enderecoRepository.findAll();
 	}
 
-	@Transactional
-	public void addAll(Collection<Endereco> Enderecos) {
-		for (Endereco Endereco : Enderecos) {
-			EnderecoRepository.save(Endereco);
-		}
-	}
-
-	@Transactional(readOnly = true)
-	public Optional<Endereco> findById(int id) {
-		return EnderecoRepository.findById(id);
-	}
+//	@Transactional
+//	public void addAll(Collection<Endereco> Enderecos) {
+//		for (Endereco Endereco : Enderecos) {
+//			enderecoRepository.save(Endereco);
+//		}
+//	}
+//
+//	@Transactional(readOnly = true)
+//	public Optional<Endereco> findById(int id) {
+//		return enderecoRepository.findById(id);
+//	}
 	
 	
 }
