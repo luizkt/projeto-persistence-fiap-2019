@@ -40,8 +40,8 @@ public class ProdutoService {
 		return produtoRepository.findByName(nome);
 	}	
 	
-	@Transactional(readOnly = true)
-	public Optional<Produto> findById(int id) {
-		return produtoRepository.findById(id);
-	}	
+//	@Transactional(readOnly = true)
+//	public Optional<Produto> findById(int id) {
+//		return produtoRepository.findById(id);
+//	}	
 }

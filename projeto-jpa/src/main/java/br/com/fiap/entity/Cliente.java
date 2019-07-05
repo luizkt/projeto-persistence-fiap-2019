@@ -14,12 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "CLIENTE", catalog = "pdv", uniqueConstraints = {
-		@UniqueConstraint(columnNames = "CLIENTE_ID") })
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;

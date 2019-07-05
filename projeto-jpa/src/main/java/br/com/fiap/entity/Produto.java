@@ -11,15 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
 
 @Entity
-@Table(name = "PRODUTO", catalog = "pdv", uniqueConstraints = {
-		@UniqueConstraint(columnNames = "PRODUTO_ID") })
-@NamedQuery(name = "Produto.findAll", query = "select p from Produto p")
 public class Produto implements Serializable {
 	
 	/**

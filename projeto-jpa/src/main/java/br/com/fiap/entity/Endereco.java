@@ -8,12 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "ENDERECO", catalog = "pdv", uniqueConstraints = {
-		@UniqueConstraint(columnNames = "ENDERECO_ID") })
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = 1L;

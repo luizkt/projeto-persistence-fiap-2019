@@ -39,8 +39,8 @@ public class ClienteService {
 		return clienteRepository.findByName(nome);
 	}
 	
-	@Transactional(readOnly = true)
-	public Optional<Cliente> findById(int id) {
-		return clienteRepository.findById(id);
-	}	
+//	@Transactional(readOnly = true)
+//	public Optional<Cliente> findById(int id) {
+//		return clienteRepository.findById(id);
+//	}	
 }

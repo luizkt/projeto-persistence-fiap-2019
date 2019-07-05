@@ -34,10 +34,10 @@ public class EnderecoService {
 		}
 	}
 
-	@Transactional(readOnly = true)
-	public Optional<Endereco> findById(int id) {
-		return EnderecoRepository.findById(id);
-	}
+//	@Transactional(readOnly = true)
+//	public Optional<Endereco> findById(int id) {
+//		return EnderecoRepository.findById(id);
+//	}
 	
 	
 }
