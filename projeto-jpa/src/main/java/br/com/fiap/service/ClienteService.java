@@ -3,17 +3,18 @@ package br.com.fiap.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.entity.Cliente;
 import br.com.fiap.repository.ClienteRepository;
 
-@Controller
+@RestController
 @RequestMapping(path = "/cliente")
 public class ClienteService {
 
@@ -21,8 +22,9 @@ public class ClienteService {
 	private ClienteRepository clienteRepository;
 
 	@Transactional
-	@GetMapping(path = "/add")
-	public @ResponseBody String add(@RequestParam String nome, @RequestParam String rg) {
+	@RequestMapping(path = "/add", method = RequestMethod.POST)
+	@ResponseBody
+	public String add(@RequestParam String nome, @RequestParam String rg) {
 		
 		Cliente cliente	= new Cliente();
 		
@@ -35,8 +37,9 @@ public class ClienteService {
 	}
 	
 	@Transactional(readOnly = true)
-	@GetMapping(path="/all")
-	public @ResponseBody Iterable<Cliente> getAllUsers() {
+	@RequestMapping(path = "/all", method = RequestMethod.GET)
+	@ResponseBody
+	public Iterable<Cliente> getAllUsers() {
 		return clienteRepository.findAll();
 	}
 
@@ -48,8 +51,9 @@ public class ClienteService {
 //	}
 
 	@Transactional(readOnly = true)
-	@GetMapping(path = "/nome")
-	public @ResponseBody List<Cliente> findByName(@RequestParam String nome) {
+	@RequestMapping(value = "/nome/{nome}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Cliente> findByName(@PathVariable String nome) {
 		return clienteRepository.findByName(nome);
 	}
 

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -21,7 +21,7 @@ public class ProdutoService {
 	private ProdutoRepository produtoRepository;
 
 	@Transactional
-	@GetMapping(path = "/add")
+	@RequestMapping(path = "/add", method = RequestMethod.POST)
 	public @ResponseBody String add(@RequestParam String codigo, @RequestParam String descricao, @RequestParam int quantidade,
 			@RequestParam double preco) {
 
@@ -38,7 +38,8 @@ public class ProdutoService {
 	}
 
 	@Transactional(readOnly = true)
-	public @ResponseBody Iterable<Produto> findAll() {
+	@RequestMapping(path = "/all", method = RequestMethod.GET)
+	public @ResponseBody Iterable<Produto> getAllProducts() {
 		return produtoRepository.findAll();
 	}
 
@@ -50,7 +51,7 @@ public class ProdutoService {
 //	}
 	
 	@Transactional(readOnly = true)
-	@GetMapping(path = "/nome")
+	@RequestMapping(path = "/nome", method = RequestMethod.GET)
 	public @ResponseBody List<Produto> findByName(@RequestParam String descricao) {
 		return produtoRepository.findByName(descricao);
 	}

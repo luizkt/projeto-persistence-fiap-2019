@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import br.com.fiap.entity.Endereco;
 
+@Repository
 public interface EnderecoRepository extends CrudRepository<Endereco, Integer> {
 	
 	@Query("SELECT e FROM ENDERECO p WHERE e.RUA = :rua")

@@ -3,8 +3,8 @@ package br.com.fiap.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,7 +19,7 @@ public class EnderecoService {
 	private EnderecoRepository enderecoRepository;
 
 	@Transactional
-	@GetMapping(path = "/add")
+	@RequestMapping(path = "/add", method = RequestMethod.POST)
 	public @ResponseBody String add(@RequestParam String rua,
 			@RequestParam String bairro, @RequestParam String numero, @RequestParam String cidade,
 			@RequestParam String estado, @RequestParam String cep, @RequestParam String pais) {
@@ -40,7 +40,7 @@ public class EnderecoService {
 	}
 
 	@Transactional(readOnly = true)
-	@GetMapping(path="/all")
+	@RequestMapping(path = "/all", method = RequestMethod.GET)
 	public @ResponseBody Iterable<Endereco> getAllUsers() {
 		return enderecoRepository.findAll();
 	}

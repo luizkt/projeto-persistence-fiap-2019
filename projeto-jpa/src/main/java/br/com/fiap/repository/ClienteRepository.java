@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import br.com.fiap.entity.Cliente;
 
+@Repository
 public interface ClienteRepository extends CrudRepository<Cliente, Integer> {
 
 	@Query("SELECT c FROM CLIENTE c WHERE c.NOME = :nome")
