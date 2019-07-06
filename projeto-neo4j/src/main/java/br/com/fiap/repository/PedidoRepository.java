@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import br.com.fiap.entityNode.Pedido;
+import br.com.fiap.entity.node.Pedido;
 
 @Repository
 public interface PedidoRepository extends CrudRepository<Pedido, Integer>{

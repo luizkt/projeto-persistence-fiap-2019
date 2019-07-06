@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.fiap.entityNode.Pedido;
+import br.com.fiap.entity.node.Pedido;
 import br.com.fiap.repository.PedidoRepository;
 
 @Component
@@ -23,7 +23,7 @@ public class PedidoService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<Pedido> findAll() {
+	public Iterable<Pedido> findAll() {
 		return pedidoRepository.findAll();
 	}
 

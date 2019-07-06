@@ -1,4 +1,4 @@
-package br.com.fiap.entityRelationship;
+package br.com.fiap.entity.relationship;
 
 import org.neo4j.ogm.annotation.EndNode;
 import org.neo4j.ogm.annotation.GeneratedValue;
@@ -6,8 +6,8 @@ import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.RelationshipEntity;
 import org.neo4j.ogm.annotation.StartNode;
 
-import br.com.fiap.entityNode.Pedido;
-import br.com.fiap.entityNode.Produto;
+import br.com.fiap.entity.node.Pedido;
+import br.com.fiap.entity.node.Produto;
 
 @RelationshipEntity(type = "PEDIDO_POSSUI")
 public class Item {

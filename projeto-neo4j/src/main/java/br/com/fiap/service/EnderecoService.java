@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.fiap.entityNode.Endereco;
+import br.com.fiap.entity.node.Endereco;
 import br.com.fiap.repository.EnderecoRepository;
 
 @Component
@@ -23,7 +23,7 @@ public class EnderecoService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<Endereco> findAll() {
+	public Iterable<Endereco> findAll() {
 		return EnderecoRepository.findAll();
 	}
 

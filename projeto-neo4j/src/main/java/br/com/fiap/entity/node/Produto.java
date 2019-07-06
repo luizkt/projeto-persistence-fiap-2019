@@ -1,4 +1,4 @@
-package br.com.fiap.entityNode;
+package br.com.fiap.entity.node;
 
 import java.util.HashSet;
 import java.util.Set;

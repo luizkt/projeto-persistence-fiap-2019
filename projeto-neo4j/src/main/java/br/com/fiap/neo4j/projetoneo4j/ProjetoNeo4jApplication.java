@@ -7,7 +7,7 @@ import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 
 @SpringBootApplication
 @EntityScan("br.com.fiap.*")
-@EnableNeo4jRepositories
+@EnableNeo4jRepositories (basePackages = "br.com.fiap.entity.*")
 public class ProjetoNeo4jApplication {
 
 	public static void main(String[] args) {

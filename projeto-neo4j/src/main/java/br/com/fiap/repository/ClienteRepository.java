@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import br.com.fiap.entityNode.Cliente;
+import br.com.fiap.entity.node.Cliente;
 
 @Repository
 public interface ClienteRepository extends CrudRepository<Cliente, Long> {
@@ -17,5 +17,9 @@ public interface ClienteRepository extends CrudRepository<Cliente, Long> {
 	
 	@Query("")
 	public List<Cliente> findByDocument(@Param("rg") String rg);
+	
+	
+	@Query("")
+	public List<Cliente> findAll();
 	
 }
