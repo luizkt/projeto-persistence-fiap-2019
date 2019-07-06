@@ -14,7 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "CLIENTE", catalog = "pdv", uniqueConstraints = {
@@ -29,11 +28,9 @@ public class Cliente implements Serializable {
 	private Integer clienteId;
 
 	@Column(name = "RG", unique = true, nullable = false)
-	@NotBlank(message = "RG é obrigatório")
 	private String rg;
 	
 	@Column(name = "NOME")
-	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
 	
 	@Column(name = "RUA")

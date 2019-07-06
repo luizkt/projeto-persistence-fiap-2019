@@ -1,4 +1,4 @@
-package br.com.fiap.jpa;
+package br.com.fiap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

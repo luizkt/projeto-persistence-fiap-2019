@@ -15,18 +15,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "PEDIDO", catalog = "pdv", uniqueConstraints = { @UniqueConstraint(columnNames = "PEDIDO_ID") })
-@NamedQuery(name = "Pedido.findAll", query = "select p from Pedido p")
 public class Pedido implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
