@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.fiap.nodeEntity.Cliente;
+import br.com.fiap.entityNode.Cliente;
 import br.com.fiap.repository.ClienteRepository;
 
 @Component
@@ -40,7 +40,7 @@ public class ClienteService {
 	}
 	
 	@Transactional(readOnly = true)
-	public Optional<Cliente> findById(int id) {
+	public Optional<Cliente> findById(Long id) {
 		return clienteRepository.findById(id);
 	}	
 }

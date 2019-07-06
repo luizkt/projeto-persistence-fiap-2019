@@ -1,4 +1,4 @@
-package br.com.fiap.entity;
+package br.com.fiap.entityNode;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -8,7 +8,7 @@ import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
-import br.com.fiap.nodeEntity.Cliente;
+import br.com.fiap.entityRelationship.Item;
 
 @NodeEntity
 public class Pedido {
@@ -19,14 +19,14 @@ public class Pedido {
 	private String desc;
 	private String codigo;
 
-	@Relationship(type = "ORDER_CONTAINS")
-	private Set<Produto> produtos = new HashSet<>();
+	@Relationship(type = "PEDIDO_POSSUI")
+	private Set<Item> itens;
 
-	public void orderContains(Produto produto) {
-		if (produtos == null) {
-			produtos = new HashSet<Produto>();
+	public void orderContains(Item item) {
+		if (itens == null) {
+			itens = new HashSet<Item>();
 		}
-		produtos.add(produto);
+		itens.add(item);
 	}
 
 	
@@ -48,12 +48,12 @@ public class Pedido {
 		this.desc = desc;
 	}
 
-	public Set<Produto> getProdutos() {
-		return produtos;
+	public Set<Item> getProdutos() {
+		return itens;
 	}
 
-	public void setProdutos(Set<Produto> produtos_pedidos) {
-		this.produtos = produtos_pedidos;
+	public void setProdutos(Set<Item> itens) {
+		this.itens = itens;
 	}
 
 	public Cliente getCliente() {

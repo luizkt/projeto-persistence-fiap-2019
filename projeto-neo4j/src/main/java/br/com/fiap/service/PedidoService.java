@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.fiap.entity.Pedido;
+import br.com.fiap.entityNode.Pedido;
 import br.com.fiap.repository.PedidoRepository;
 
 @Component

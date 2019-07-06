@@ -1,4 +1,4 @@
-package br.com.fiap.nodeEntity;
+package br.com.fiap.entityNode;
 
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;

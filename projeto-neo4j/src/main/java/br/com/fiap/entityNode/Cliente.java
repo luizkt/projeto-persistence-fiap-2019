@@ -1,4 +1,4 @@
-package br.com.fiap.nodeEntity;
+package br.com.fiap.entityNode;
 
 
 import java.util.HashSet;
@@ -8,8 +8,6 @@ import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
-
-import br.com.fiap.entity.Pedido;
 
 @NodeEntity
 public class Cliente {
