@@ -1,17 +1,27 @@
 package br.com.fiap.service;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import br.com.fiap.entity.Cliente;
+import br.com.fiap.model.ClienteJson;
 import br.com.fiap.repository.ClienteRepository;
 
 @RestController
@@ -24,16 +34,40 @@ public class ClienteService {
 	@Transactional
 	@RequestMapping(path = "/add", method = RequestMethod.POST)
 	@ResponseBody
-	public String add(@RequestParam String nome, @RequestParam String rg) {
+	public ResponseEntity<String> add(@Valid @RequestBody Map<String, Object> payload) {
 		
-		Cliente cliente	= new Cliente();
+		try {
+			
+			ObjectMapper mapper = new ObjectMapper();
+			ClienteJson clienteJson = mapper.convertValue(payload, ClienteJson.class);
+			Cliente cliente = new Cliente();
+			
+			cliente.setNome(clienteJson.getNome());
+			cliente.setRg(clienteJson.getRg());
+			cliente.setRua(clienteJson.getEndereco().getRua());
+			cliente.setBairro(clienteJson.getEndereco().getBairro());
+			cliente.setNumero(clienteJson.getEndereco().getNumero());
+			cliente.setCidade(clienteJson.getEndereco().getCidade());
+			cliente.setEstado(clienteJson.getEndereco().getEstado());
+			cliente.setCep(clienteJson.getEndereco().getCep());
+			cliente.setPais(clienteJson.getEndereco().getPais());
+			
+			clienteRepository.save(cliente);
+			
+			HttpHeaders headers = new HttpHeaders();
+			headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString());
+			String body = "{\"Mensagem\":\"Cliente adicionado com sucesso\"}";
+			
+			return new ResponseEntity<>(body, headers, HttpStatus.CREATED);
+			
+		} catch (Exception e) {
+			HttpHeaders headers = new HttpHeaders();
+			headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString());
+			String body = "{\"Mensagem\":\"Ocorreu um erro\", \"Execeção\":" + e.getMessage() + "}";
+			
+			return new ResponseEntity<>(body, headers, HttpStatus.BAD_REQUEST);
+		}
 		
-		cliente.setNome(nome);
-		cliente.setRg(rg);
-
-		clienteRepository.save(cliente);
-		
-		return "Salvo com sucesso";
 	}
 	
 	@Transactional(readOnly = true)
@@ -55,6 +89,13 @@ public class ClienteService {
 	@ResponseBody
 	public List<Cliente> findByName(@PathVariable String nome) {
 		return clienteRepository.findByName(nome);
+	}
+	
+	@Transactional(readOnly = true)
+	@RequestMapping(value = "/rg/{rg}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Cliente> findByDocument(@PathVariable String rg) {
+		return clienteRepository.findByDocument(rg);
 	}
 
 //	@Transactional(readOnly = true)
