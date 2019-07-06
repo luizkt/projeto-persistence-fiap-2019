@@ -24,7 +24,7 @@ public class Cliente {
 	@Relationship(type = "REALIZA", direction = Relationship.UNDIRECTED)
 	private Set<Pedido> pedidos;
 	
-	public void compras(Pedido pedido)
+	public void realizouOsPedidos(Pedido pedido)
 	{
 		if(pedidos == null)
 		{
@@ -42,8 +42,22 @@ public class Cliente {
 	public Cliente()
 	{
 		
+	} 	
+	
+	public void resideEm(Endereco endereco)
+	{
+		if(endereco == null)
+		{
+			endereco = new Endereco();
+		}
+		this.endereco = endereco;
 	}
 	
+	public Cliente (String nome, String rg)
+	{
+		this.nome = nome;
+		this.rg = rg;
+	}
 	
 	public Integer getClienteId() {
 		return clienteId;
@@ -81,7 +95,4 @@ public class Cliente {
 		return endereco;
 	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
 }

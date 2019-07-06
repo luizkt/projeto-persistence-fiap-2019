@@ -23,7 +23,7 @@ public class ClienteService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<Cliente> findAll() {
+	public Iterable<Cliente> findAll() {
 		return clienteRepository.findAll();
 	}
 

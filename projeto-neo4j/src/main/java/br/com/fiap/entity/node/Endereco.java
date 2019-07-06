@@ -26,6 +26,12 @@ public class Endereco{
 	@SuppressWarnings("unused")
 	public Endereco()	{}
 	
+	public Endereco(String rua, String numero)
+	{
+		this.rua = rua;
+		this.numero = numero;
+	}
+	
 	public Integer getEnderecoId() {
 		return enderecoId;
 	}

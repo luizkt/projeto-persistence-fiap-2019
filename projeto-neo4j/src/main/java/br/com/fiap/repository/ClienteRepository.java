@@ -17,9 +17,6 @@ public interface ClienteRepository extends CrudRepository<Cliente, Long> {
 	
 	@Query("")
 	public List<Cliente> findByDocument(@Param("rg") String rg);
-	
-	
-	@Query("")
-	public List<Cliente> findAll();
+
 	
 }

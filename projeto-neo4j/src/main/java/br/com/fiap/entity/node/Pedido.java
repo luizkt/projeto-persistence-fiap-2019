@@ -3,6 +3,8 @@ package br.com.fiap.entity.node;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.management.relation.Relation;
+
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
@@ -18,20 +20,29 @@ public class Pedido {
 	private Integer pedidoId;
 	private String desc;
 	private String codigo;
-
+	
 	@Relationship(type = "PEDIDO_POSSUI")
 	private Set<Item> itens;
 
-	public void orderContains(Item item) {
+	public void pedidoContem(Item item) {
 		if (itens == null) {
 			itens = new HashSet<Item>();
 		}
 		itens.add(item);
 	}
 
-	
+	@Relationship(type = Relationship.INCOMING)
 	private Cliente cliente;
-
+	
+	public void pedidoPertenceAo(Cliente cliente)
+	{
+		if(cliente == null)
+		{
+			cliente = new Cliente();
+		}
+		this.cliente = cliente;
+	}
+	
 	public Integer getPedidoId() {
 		return pedidoId;
 	}
@@ -58,10 +69,6 @@ public class Pedido {
 
 	public Cliente getCliente() {
 		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
 	}
 
 	public String getCodigo() {

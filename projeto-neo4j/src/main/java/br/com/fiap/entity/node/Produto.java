@@ -26,7 +26,7 @@ public class Produto {
 	
 	private double preco;
 	
-	@Relationship(type = "")
+	@Relationship(type = Relationship.INCOMING)
 	private Set<Pedido> pedidos = new HashSet<>();
 
 	public Long getProdutoId() {
