@@ -12,22 +12,22 @@ import br.com.fiap.entity.Endereco;
 @Repository
 public interface EnderecoRepository extends CrudRepository<Endereco, Integer> {
 	
-	@Query("SELECT e FROM ENDERECO p WHERE e.RUA = :rua")
+	@Query("select e from Endereco e where e.rua = :rua")
 	public List<Endereco> findByStreet(@Param("rua") String rua);
 	
-	@Query("SELECT e FROM ENDERECO p WHERE e.CEP = :cep")
+	@Query("select e from Endereco e where e.cep = :cep")
 	public List<Endereco> findByPostalCode(@Param("cep") String cep);
 
-	@Query("SELECT e FROM ENDERECO p WHERE e.bairro = :bairro")
+	@Query("select e from Endereco e where e.bairro = :bairro")
 	public List<Endereco> findByDistrict(@Param("bairro") String bairro);
 	
-	@Query("SELECT e FROM ENDERECO p WHERE e.CIDADE = :cidade")
+	@Query("select e from Endereco e where e.cidade = :cidade")
 	public List<Endereco> findByCity(@Param("cidade") String cidade);
 	
-	@Query("SELECT e FROM ENDERECO p WHERE e.ESTADO = :estado")
+	@Query("select e from Endereco e where e.estado = :estado")
 	public List<Endereco> findByState(@Param("estado") String estado);
 	
-	@Query("SELECT e FROM ENDERECO p WHERE e.PAIS = :pais")
+	@Query("select e from Endereco e where e.pais = :pais")
 	public List<Endereco> findByCountry(@Param("pais") String pais);
 	
 		

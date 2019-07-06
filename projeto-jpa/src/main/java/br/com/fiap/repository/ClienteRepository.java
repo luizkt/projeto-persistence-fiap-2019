@@ -12,12 +12,10 @@ import br.com.fiap.entity.Cliente;
 @Repository
 public interface ClienteRepository extends CrudRepository<Cliente, Integer> {
 
-	@Query("SELECT c FROM CLIENTE c WHERE c.NOME = :nome")
+	@Query("select c from Cliente c where c.nome = :nome")
 	public List<Cliente> findByName(@Param("nome") String nome);
 	
-	@Query("SELECT c FROM CLIENTE c WHERE c.RG = :rg")
+	@Query("select c from Cliente c where c.rg = :rg")
 	public List<Cliente> findByDocument(@Param("rg") String rg);
 	
-	List<Cliente> findClienteByName(@Param("nome") String s);
-		
 }

@@ -12,10 +12,10 @@ import br.com.fiap.entity.Produto;
 @Repository
 public interface ProdutoRepository extends CrudRepository<Produto, Integer>{
 
-	@Query("SELECT p FROM PRODUTO p WHERE p.DESCRICAO = :descricao")
+	@Query("select p from Produto p where p.desc = :descricao")
 	public List<Produto> findByName(@Param("descricao") String descricao);
 		
-	@Query("SELECT p FROM PRODUTO p WHERE p.CODIGO = :codigo")
+	@Query("select p from Produto p where p.codigo = :codigo")
 	public List<Produto> findByCode(@Param("codigo") String codigo);
 		
 	
