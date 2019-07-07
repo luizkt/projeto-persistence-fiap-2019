@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -22,10 +23,12 @@ public class Itens implements Serializable {
 	private ItensPK id = new ItensPK();
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@MapsId("pedidoPk")
 	@JoinColumn(name = "pedidoPk", nullable=false, insertable=false, updatable=false)
 	private Pedido pedidoPk;
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@MapsId("produtoPk")
 	@JoinColumn(name = "produtoPk", nullable=false, insertable=false, updatable=false)
 	private Produto produtoPk;
 

@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.fiap.entity.Cliente;
 import br.com.fiap.entity.Itens;
+import br.com.fiap.entity.ItensPK;
 import br.com.fiap.entity.Pedido;
 import br.com.fiap.entity.Produto;
 import br.com.fiap.model.PedidoJson;
@@ -72,6 +73,11 @@ public class PedidoService {
 				itens.setProdutoPk(produto);
 				itens.setPedidoPk(pedido);
 				itens.setQuantidade(pedidoJson.getProdutos().get(i).getQuantidade());
+				
+				ItensPK itenspk = new ItensPK();
+				itenspk.setPedidoPk(pedido.getPedidoId());
+				itenspk.setProdutoPk(produto.getProdutoId());
+				itens.setId(itenspk);
 				
 				itensRepository.save(itens);
 			}
