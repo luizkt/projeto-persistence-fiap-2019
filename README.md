@@ -1,10 +1,11 @@
-# projeto-persistence-fiap-2019
+# Projeto Persistence FIAP 2019
 
 # Índice
 
 * [Integrantes](#integrantes)
 * [Modelo do Banco de Dados](#modelo-do-banco-de-dados)
 * [Requisitos](#requisitos)
+* [Bando de dados - MySQL Docker](#bando-de-dados---mysql-docker)
 
 ## Integrantes
 
@@ -30,6 +31,9 @@ Trata-se de um sistema de cadastro de produtos e pedidos em um portal de e-comme
 *  Cada produto possui um código, um nome, uma quantidade e um valor.
 *  Cada cliente possui seus dados pessoais e dados de entrega.
 
-## Projeto exemplo
+## Banco de Dados - MySQL Docker
 
-https://github.com/spring-guides/gs-accessing-data-mysql/tree/master/complete/src/main/java/hello
+* Linux
+``` sh
+docker run -p 3306:3306 --name fiap-mysql -e MYSQL_ROOT_PASSWORD=fiap2019 -d mysql:8 mysqld --default-authentication-plugin=mysql_native_password
+```
