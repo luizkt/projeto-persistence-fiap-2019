@@ -44,7 +44,7 @@ public class Pedido implements Serializable {
 	@JoinColumn(name = "IDCLIENTE")
 	private Cliente cliente;
 	
-	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidoPk", cascade = CascadeType.ALL)
 	private Set<Itens> itens = new HashSet<>();
 
 	public Integer getPedidoId() {

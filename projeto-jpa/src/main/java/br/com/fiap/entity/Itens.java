@@ -3,48 +3,57 @@ package br.com.fiap.entity;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ITENS", catalog = "pdv")
-@IdClass(ItensPK.class)
+//@AssociationOverrides({ @AssociationOverride(name = "pedido", joinColumns = @JoinColumn(name = "PEDIDO_ID")),
+//		@AssociationOverride(name = "produto", joinColumns = @JoinColumn(name = "PRODUTO_ID")) })
 public class Itens implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-	@Id
+
+	@EmbeddedId
+	private ItensPK id = new ItensPK();
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PEDIDO_ID")
-	private Pedido pedido;
-	
-	@Id
+	@JoinColumn(name = "pedidoPk", nullable=false, insertable=false, updatable=false)
+	private Pedido pedidoPk;
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PRODUTO_ID")
-	private Produto produto;
-	
+	@JoinColumn(name = "produtoPk", nullable=false, insertable=false, updatable=false)
+	private Produto produtoPk;
+
 	@Column(name = "QUANTIDADE")
 	private int quantidade;
 
-	public Pedido getPedido() {
-		return pedido;
+	public ItensPK getId() {
+		return id;
 	}
 
-	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
+	public void setId(ItensPK id) {
+		this.id = id;
 	}
 
-	public Produto getProduto() {
-		return produto;
+	public Pedido getPedidoPk() {
+		return pedidoPk;
 	}
 
-	public void setProduto(Produto produto) {
-		this.produto = produto;
+	public void setPedidoPk(Pedido pedidoPk) {
+		this.pedidoPk = pedidoPk;
+	}
+
+	public Produto getProdutoPk() {
+		return produtoPk;
+	}
+
+	public void setProdutoPk(Produto produtoPk) {
+		this.produtoPk = produtoPk;
 	}
 
 	public int getQuantidade() {

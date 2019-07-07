@@ -69,8 +69,8 @@ public class PedidoService {
 			for(int i = 0 ; i < pedidoJson.getProdutos().size() ; i++) {
 				Produto produto = produtoRepository.findByName(pedidoJson.getProdutos().get(i).getDescricao()).get(0);
 				
-				itens.setProduto(produto);
-				itens.setPedido(pedido);
+				itens.setProdutoPk(produto);
+				itens.setPedidoPk(pedido);
 				itens.setQuantidade(pedidoJson.getProdutos().get(i).getQuantidade());
 				
 				itensRepository.save(itens);

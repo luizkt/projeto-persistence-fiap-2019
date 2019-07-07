@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,7 +40,7 @@ public class Produto implements Serializable {
 	@Column(name = "PRECO")
 	private double preco;
 
-	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "produtoPk", cascade = CascadeType.ALL)
 	private Set<Itens> itens = new HashSet<>();
 	
 //	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "produtos_pedidos")
