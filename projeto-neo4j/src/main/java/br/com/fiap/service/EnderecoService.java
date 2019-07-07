@@ -6,10 +6,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.entity.node.Endereco;
 import br.com.fiap.repository.EnderecoRepository;
 
+
+@RestController
+@RequestMapping(path = "/endereco")
 @Component
 public class EnderecoService {
 

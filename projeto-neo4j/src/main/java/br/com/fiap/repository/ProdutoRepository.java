@@ -14,11 +14,11 @@ public interface ProdutoRepository extends CrudRepository<Produto, Long>{
 
 	@Query("MATCH (e:Endereco) WHERE e.DESCRICAO = :descricao RETURN e;")
 //	@Query("SELECT p FROM PRODUTO p WHERE p.DESCRICAO = :descricao")
-	public List<Produto> findByName(@Param("descricao") String descricao);
+	public List<Produto> findByDesc(@Param("descricao") String descricao);
 		
 	@Query("MATCH (PRODUTO) WHERE e.CODIGO = :codigo RETURN e;")
 //	@Query("SELECT p FROM PRODUTO p WHERE p.CODIGO = :codigo")
-	public List<Produto> findByCode(@Param("codigo") String codigo);
+	public List<Produto> findByCodigo(@Param("codigo") String codigo);
 		
 	
 }

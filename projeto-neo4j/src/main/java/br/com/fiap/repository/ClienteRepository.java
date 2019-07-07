@@ -1,6 +1,7 @@
 package br.com.fiap.repository;
 
 import java.util.List;
+
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -12,13 +13,12 @@ import br.com.fiap.entity.node.Cliente;
 @Repository
 public interface ClienteRepository extends CrudRepository<Cliente, Long> {
 
-//	@Query("$MATCH (c:Cliente) WHERE c.nome = :nome RETURN c")
+	@Query("MATCH (c:Cliente) WHERE c.nome = {nome} RETURN c")
 //	@Query("SELECT e FROM CLIENTE p WHERE e.NOME = :nome")
-	public List<Cliente> findByNome(String nome);
+	public List<Cliente> findByNome(@Param("nome") String nome);
 	
-//	@Query("$MATCH (c:Cliente) WHERE c.rg = :rg RETURN c")
-//	@Query("SELECT e FROM CLIENTE p WHERE e.RG = :rg")
-	public List<Cliente> findByRg(String rg);
+	@Query("MATCH (c:Cliente) WHERE c.rg = {rg} RETURN c")
+	public List<Cliente> findByRg(@Param("rg")  String rg);
 
 	
 }

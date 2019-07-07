@@ -79,4 +79,14 @@ public class Pedido {
 		this.codigo = codigo;
 	}
 
+	public Set<Item> getItens() {
+		return itens;
+	}
+
+	public void setItens(Set<Item> itens) {
+		this.itens = itens;
+	}
+	
+	
+
 }
