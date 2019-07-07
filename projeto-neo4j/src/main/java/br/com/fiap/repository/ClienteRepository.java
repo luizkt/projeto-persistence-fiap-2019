@@ -14,11 +14,11 @@ public interface ClienteRepository extends CrudRepository<Cliente, Long> {
 
 //	@Query("$MATCH (c:Cliente) WHERE c.nome = :nome RETURN c")
 //	@Query("SELECT e FROM CLIENTE p WHERE e.NOME = :nome")
-	public List<Cliente> findByName(String nome);
+	public List<Cliente> findByNome(String nome);
 	
 //	@Query("$MATCH (c:Cliente) WHERE c.rg = :rg RETURN c")
 //	@Query("SELECT e FROM CLIENTE p WHERE e.RG = :rg")
-	public List<Cliente> findByDocument(String rg);
+	public List<Cliente> findByRg(String rg);
 
 	
 }

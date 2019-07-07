@@ -35,8 +35,8 @@ public class ClienteService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<Cliente> findByName(String nome) {
-		return clienteRepository.findByName(nome);
+	public List<Cliente> findByNome(String nome) {
+		return clienteRepository.findByNome(nome);
 	}
 	
 	@Transactional(readOnly = true)

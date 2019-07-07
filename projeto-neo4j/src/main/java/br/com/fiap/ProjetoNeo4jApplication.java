@@ -11,9 +11,8 @@ import br.com.fiap.entity.node.Cliente;
 import br.com.fiap.repository.ClienteRepository;
 
 @SpringBootApplication
-@EntityScan("br.com.fiap.entity")
+@EntityScan(basePackages = "br.com.fiap.entity")
 @EnableNeo4jRepositories(basePackages = "br.com.fiap.repository")
-// @EnableNeo4jRepositories(basePackageClasses = ClienteRepository.class)
 public class ProjetoNeo4jApplication {
 
 	public static void main(String[] args) {
@@ -29,7 +28,7 @@ public class ProjetoNeo4jApplication {
 
 				Cliente p1 = new Cliente("asd", "123");
 				// p1.setClienteId(1);
-				// Cliente p2 = new Cliente();
+				Cliente p2 = new Cliente();
 				// Cliente p3 = new Cliente();
 
 				// List<Cliente> time = Arrays.asList(p1, p2, p3);
@@ -48,9 +47,11 @@ public class ProjetoNeo4jApplication {
 				// clienteRepository.save(p2);
 				// clienteRepository.save(p3);
 
-				p1 = clienteRepository.findByName(p1.getNome()).get(0);
+				p2 = clienteRepository.findByNome(p1.getNome()).get(0);
 
-				clienteRepository.save(p1);
+				System.out.println(p2.getNome() + " - " + p2.getRg() + " - " + p2.getClienteId());
+
+				// clienteRepository.save(p1);
 
 				// p2 = clienteRepository.findByName(p2.getNome()).get(0);
 				// p2.worksWith(p3); // Não é necessário ligar p1 com p2, pois já sabemos disso
