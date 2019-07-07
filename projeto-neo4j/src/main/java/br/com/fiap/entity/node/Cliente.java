@@ -1,6 +1,5 @@
 package br.com.fiap.entity.node;
 
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,56 +13,48 @@ public class Cliente {
 
 	@Id
 	@GeneratedValue
-	private Integer clienteId;
+	private int clienteId;
 
 	private String nome;
 
 	private String rg;
-	
-	
+
 	@Relationship(type = "REALIZA", direction = Relationship.UNDIRECTED)
 	private Set<Pedido> pedidos;
-	
-	public void realizouOsPedidos(Pedido pedido)
-	{
-		if(pedidos == null)
-		{
+
+	public void realizouOsPedidos(Pedido pedido) {
+		if (pedidos == null) {
 			pedidos = new HashSet<Pedido>();
 		}
-		
+
 		pedidos.add(pedido);
 	}
-	
-	@Relationship(type ="RESIDE")
+
+	@Relationship(type = "RESIDE")
 	private Endereco endereco;
-	
-	
+
 	@SuppressWarnings("unused")
-	public Cliente()
-	{
-		
-	} 	
-	
-	public void resideEm(Endereco endereco)
-	{
-		if(endereco == null)
-		{
+	public Cliente() {
+
+	}
+
+	public void resideEm(Endereco endereco) {
+		if (endereco == null) {
 			endereco = new Endereco();
 		}
 		this.endereco = endereco;
 	}
-	
-	public Cliente (String nome, String rg)
-	{
+
+	public Cliente(String nome, String rg) {
 		this.nome = nome;
 		this.rg = rg;
 	}
-	
-	public Integer getClienteId() {
+
+	public int getClienteId() {
 		return clienteId;
 	}
 
-	public void setClienteId(Integer clienteId) {
+	public void setClienteId(int clienteId) {
 		this.clienteId = clienteId;
 	}
 

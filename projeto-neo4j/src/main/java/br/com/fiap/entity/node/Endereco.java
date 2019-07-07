@@ -6,11 +6,11 @@ import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
 @NodeEntity
-public class Endereco{
-	
+public class Endereco {
+
 	@Id
 	@GeneratedValue
-	private Integer enderecoId;
+	private Long enderecoId;
 	private String rua;
 	private String bairro;
 	private String numero;
@@ -19,24 +19,23 @@ public class Endereco{
 	private String cep;
 	private String pais;
 
-	
 	@Relationship(direction = Relationship.INCOMING)
 	private Cliente cliente;
-	
+
 	@SuppressWarnings("unused")
-	public Endereco()	{}
-	
-	public Endereco(String rua, String numero)
-	{
+	public Endereco() {
+	}
+
+	public Endereco(String rua, String numero) {
 		this.rua = rua;
 		this.numero = numero;
 	}
-	
-	public Integer getEnderecoId() {
+
+	public Long getEnderecoId() {
 		return enderecoId;
 	}
 
-	public void setEnderecoId(Integer enderecoId) {
+	public void setEnderecoId(Long  enderecoId) {
 		this.enderecoId = enderecoId;
 	}
 
@@ -103,7 +102,5 @@ public class Endereco{
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
-	
-	
+
 }

@@ -11,13 +11,13 @@ import br.com.fiap.entity.node.Cliente;
 
 //https://neo4j.com/developer/guide-sql-to-cypher/
 @Repository
-public interface ClienteRepository extends CrudRepository<Cliente, Long> {
+public interface ClienteRepository extends CrudRepository<Cliente, Integer> {
 
-	@Query("MATCH (c:Cliente) WHERE c.NOME = :nome RETURN c")
+	@Query("$MATCH (c:Cliente) WHERE c.nome = :nome RETURN c")
 //	@Query("SELECT e FROM CLIENTE p WHERE e.NOME = :nome")
 	public List<Cliente> findByName(@Param("nome") String nome);
 	
-	@Query("MATCH (c:Cliente) WHERE c.RG = :rg RETURN c")
+	@Query("$MATCH (c:Cliente) WHERE c.rg = :rg RETURN c")
 //	@Query("SELECT e FROM CLIENTE p WHERE e.RG = :rg")
 	public List<Cliente> findByDocument(@Param("rg") String rg);
 
