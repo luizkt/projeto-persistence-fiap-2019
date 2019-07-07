@@ -10,7 +10,7 @@ import br.com.fiap.entity.node.Cliente;
 
 //https://neo4j.com/developer/guide-sql-to-cypher/
 @Repository
-public interface ClienteRepository extends CrudRepository<Cliente, Long> {
+public interface ClienteRepositoryImpl extends CrudRepository<Cliente, Long> {
 
 //	@Query("$MATCH (c:Cliente) WHERE c.nome = :nome RETURN c")
 //	@Query("SELECT e FROM CLIENTE p WHERE e.NOME = :nome")

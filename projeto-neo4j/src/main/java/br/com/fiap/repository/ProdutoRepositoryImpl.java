@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import br.com.fiap.entity.node.Produto;
 
 @Repository
-public interface ProdutoRepository extends CrudRepository<Produto, Long>{
+public interface ProdutoRepositoryImpl extends CrudRepository<Produto, Long>{
 
 	@Query("MATCH (e:Endereco) WHERE e.DESCRICAO = :descricao RETURN e;")
 //	@Query("SELECT p FROM PRODUTO p WHERE p.DESCRICAO = :descricao")

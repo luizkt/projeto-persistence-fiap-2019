@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fiap.entity.node.Cliente;
-import br.com.fiap.repository.ClienteRepository;
+import br.com.fiap.repository.ClienteRepositoryImpl;
 
 @Component
 public class ClienteService {
 
 	@Autowired
-	private ClienteRepository clienteRepository;
+	private ClienteRepositoryImpl clienteRepository;
 
 	@Transactional
 	public void add(Cliente cliente) {

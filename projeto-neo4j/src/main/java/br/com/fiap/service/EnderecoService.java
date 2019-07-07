@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fiap.entity.node.Endereco;
-import br.com.fiap.repository.EnderecoRepository;
+import br.com.fiap.repository.EnderecoRepositoryImpl;
 
 @Component
 public class EnderecoService {
 
 	@Autowired
-	private EnderecoRepository EnderecoRepository;
+	private EnderecoRepositoryImpl EnderecoRepository;
 
 	@Transactional
 	public void add(Endereco Endereco) {

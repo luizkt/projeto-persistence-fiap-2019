@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fiap.entity.node.Produto;
-import br.com.fiap.repository.ProdutoRepository;
+import br.com.fiap.repository.ProdutoRepositoryImpl;
 
 @Component
 public class ProdutoService {
 
 	@Autowired
-	private ProdutoRepository produtoRepository;
+	private ProdutoRepositoryImpl produtoRepository;
 
 	@Transactional
 	public void add(Produto produto) {
