@@ -12,21 +12,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "PEDIDO", catalog = "pdv", uniqueConstraints = { @UniqueConstraint(columnNames = "PEDIDO_ID") })
-@NamedQuery(name = "Pedido.findAll", query = "select p from Pedido p")
 public class Pedido implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -39,16 +33,19 @@ public class Pedido implements Serializable {
 
 	@Column(name = "CODIGO")
 	private String codigo;
-
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "PRODUTOS_PEDIDOS", catalog = "pdv", joinColumns = 
-	{@JoinColumn(name = "PEDIDO_ID", nullable = false, updatable=false)},
-	inverseJoinColumns = {@JoinColumn(name="PRODUTO_ID", nullable=false, updatable=false)})
-	private Set<Produto> produtos_pedidos = new HashSet<>();
+	
+//	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	@JoinTable(name = "PRODUTOS_PEDIDOS", catalog = "pdv", joinColumns = 
+//	{@JoinColumn(name = "PEDIDO_ID", nullable = false, updatable=false)},
+//	inverseJoinColumns = {@JoinColumn(name="PRODUTO_ID", nullable=false, updatable=false)})
+//	private Set<Produto> produtos_pedidos = new HashSet<>();
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "IDCLIENTE")
 	private Cliente cliente;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidoPk", cascade = CascadeType.ALL)
+	private Set<Itens> itens = new HashSet<>();
 
 	public Integer getPedidoId() {
 		return pedidoId;
@@ -66,12 +63,12 @@ public class Pedido implements Serializable {
 		this.desc = desc;
 	}
 
-	public Set<Produto> getProdutos_pedidos() {
-		return produtos_pedidos;
+	public String getCodigo() {
+		return codigo;
 	}
 
-	public void setProdutos_pedidos(Set<Produto> produtos_pedidos) {
-		this.produtos_pedidos = produtos_pedidos;
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 	public Cliente getCliente() {
@@ -82,7 +79,12 @@ public class Pedido implements Serializable {
 		this.cliente = cliente;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public Set<Itens> getItens() {
+		return itens;
 	}
+
+	public void setItens(Set<Itens> itens) {
+		this.itens = itens;
+	}
+
 }
