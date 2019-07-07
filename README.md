@@ -5,7 +5,7 @@
 * [Integrantes](#integrantes)
 * [Modelo do Banco de Dados](#modelo-do-banco-de-dados)
 * [Requisitos](#requisitos)
-* [Bando de dados - MySQL Docker](#bando-de-dados---mysql-docker)
+* [Bando de dados - MySQL Docker](#banco-de-dados---mysql-docker)
 
 ## Integrantes
 
