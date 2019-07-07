@@ -18,5 +18,4 @@ public interface PedidoRepository extends CrudRepository<Pedido, Integer>{
 	@Query("select p from Pedido p where p.codigo = :codigo")
 	public List<Pedido> findOrderByCode(@Param("codigo") Integer codigo);
 	
-	
 }
