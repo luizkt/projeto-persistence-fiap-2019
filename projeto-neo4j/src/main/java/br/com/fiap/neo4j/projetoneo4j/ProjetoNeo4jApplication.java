@@ -28,7 +28,7 @@ public class ProjetoNeo4jApplication {
 				// clienteRepository.deleteAll();
 
 				Cliente p1 = new Cliente("asd", "123");
-				p1.setClienteId(1);
+//				p1.setClienteId(1);
 				// Cliente p2 = new Cliente();
 				// Cliente p3 = new Cliente();
 

@@ -17,7 +17,7 @@ public class Pedido {
 
 	@Id
 	@GeneratedValue
-	private Integer pedidoId;
+	private Long pedidoId;
 	private String desc;
 	private String codigo;
 	
@@ -43,11 +43,11 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 	
-	public Integer getPedidoId() {
+	public Long getPedidoId() {
 		return pedidoId;
 	}
 
-	public void setPedidoId(Integer pedidoId) {
+	public void setPedidoId(Long pedidoId) {
 		this.pedidoId = pedidoId;
 	}
 

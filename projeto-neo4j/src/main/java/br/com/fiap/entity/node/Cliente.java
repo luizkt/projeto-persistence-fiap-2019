@@ -13,7 +13,7 @@ public class Cliente {
 
 	@Id
 	@GeneratedValue
-	private int clienteId;
+	private Long clienteId;
 	private String nome;
 	private String rg;
 
@@ -48,11 +48,11 @@ public class Cliente {
 		this.rg = rg;
 	}
 
-	public int getClienteId() {
+	public Long getClienteId() {
 		return clienteId;
 	}
 
-	public void setClienteId(int clienteId) {
+	public void setClienteId(Long clienteId) {
 		this.clienteId = clienteId;
 	}
 
