@@ -34,7 +34,7 @@ public class PedidoService {
 	}
 
 	@Transactional(readOnly = true)
-	public Optional<Pedido> findById(int id) {
+	public Optional<Pedido> findById(Long id) {
 		return pedidoRepository.findById(id);
 	}
 }

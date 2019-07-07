@@ -1,9 +1,5 @@
 package br.com.fiap.neo4j.projetoneo4j;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.Consumer;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,11 +8,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 
 import br.com.fiap.entity.node.Cliente;
-import br.com.fiap.entity.node.Endereco;
 import br.com.fiap.repository.ClienteRepository;
 
 @SpringBootApplication
-@EntityScan("br.com.fiap.entity.*")
+@EntityScan("br.com.fiap.entity")
 @EnableNeo4jRepositories(basePackages = "br.com.fiap.repository")
 // @EnableNeo4jRepositories(basePackageClasses = ClienteRepository.class)
 public class ProjetoNeo4jApplication {

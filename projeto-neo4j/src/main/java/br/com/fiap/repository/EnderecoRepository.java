@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import br.com.fiap.entity.node.Endereco;
 
 @Repository
-public interface EnderecoRepository extends CrudRepository<Endereco, Integer> {
+public interface EnderecoRepository extends CrudRepository<Endereco, Long> {
 	
 	@Query("MATCH (e:Endereco) WHERE e.RUA = :rua RETURN e")
  //	@Query("SELECT e FROM ENDERECO p WHERE e.RUA = :rua")

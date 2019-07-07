@@ -14,9 +14,7 @@ public class Cliente {
 	@Id
 	@GeneratedValue
 	private int clienteId;
-
 	private String nome;
-
 	private String rg;
 
 	@Relationship(type = "REALIZA", direction = Relationship.UNDIRECTED)
@@ -30,7 +28,7 @@ public class Cliente {
 		pedidos.add(pedido);
 	}
 
-	@Relationship(type = "RESIDE")
+	@Relationship(type = "resideEm")
 	private Endereco endereco;
 
 	@SuppressWarnings("unused")

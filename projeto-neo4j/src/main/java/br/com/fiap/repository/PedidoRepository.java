@@ -10,13 +10,13 @@ import org.springframework.stereotype.Repository;
 import br.com.fiap.entity.node.Pedido;
 
 @Repository
-public interface PedidoRepository extends CrudRepository<Pedido, Integer>{
+public interface PedidoRepository extends CrudRepository<Pedido, Long>{
 
 	@Query("MATCH (e:Pedido) WHERE e.ID = :idcliente RETURN e")
-	public List<Pedido> findAllOrdersOfACostumer(@Param("idcliente") Integer idcliente);
+	public List<Pedido> findAllOrdersOfACostumer(@Param("idcliente") Long idcliente);
 	
 	@Query("MATCH (e:Pedido) WHERE e.CODIGO = :codigo RETURN e")
-	public List<Pedido> findOrderByCode(@Param("codigo") Integer codigo);
+	public List<Pedido> findOrderByCode(@Param("codigo") Long codigo);
 	
 	
 }

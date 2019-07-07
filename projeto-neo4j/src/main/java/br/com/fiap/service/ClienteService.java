@@ -40,7 +40,7 @@ public class ClienteService {
 	}
 	
 	@Transactional(readOnly = true)
-	public Optional<Cliente> findById(int id) {
+	public Optional<Cliente> findById(Long id) {
 		return clienteRepository.findById(id);
 	}	
 }

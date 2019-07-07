@@ -34,7 +34,7 @@ public class EnderecoService {
 	}
 
 	@Transactional(readOnly = true)
-	public Optional<Endereco> findById(int id) {
+	public Optional<Endereco> findById(Long id) {
 		return EnderecoRepository.findById(id);
 	}
 	
