@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 
 import br.com.fiap.entity.node.Cliente;
+import br.com.fiap.entity.node.Endereco;
 import br.com.fiap.repository.ClienteRepository;
 
 @SpringBootApplication
@@ -39,10 +40,14 @@ public class ProjetoNeo4jApplication {
 				// }
 				// });
 
-				// Endereco end = new Endereco("av alguma coisa", "123");
+				Endereco end = new Endereco("av alguma coisa", "123");
 
-				// p1.resideEm(end);
-
+				p1.resideEm(end);
+				
+				end.setCliente(p1);
+				
+				
+				
 				clienteRepository.save(p1);
 				// clienteRepository.save(p2);
 				// clienteRepository.save(p3);
