@@ -167,7 +167,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"codigo\": \"12347\",\n\t\"descricao\": \"Caneta\",\n\t\"preco\": 10.09,\n\t\"quantidade\": 10\n}"
+							"raw": "{\n\t\"codigo\": \"12346\",\n\t\"descricao\": \"Lapis\",\n\t\"preco\": 10.09,\n\t\"quantidade\": 10\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/api/produto/add",
@@ -196,7 +196,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/",
+							"raw": "http://localhost:8080/api/pedido/codigo/12347",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -204,7 +204,9 @@
 							"port": "8080",
 							"path": [
 								"api",
-								""
+								"pedido",
+								"codigo",
+								"12347"
 							]
 						}
 					},
@@ -216,7 +218,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/",
+							"raw": "http://localhost:8080/api/pedido/cliente/12",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -224,7 +226,9 @@
 							"port": "8080",
 							"path": [
 								"api",
-								""
+								"pedido",
+								"cliente",
+								"12"
 							]
 						}
 					},
@@ -244,7 +248,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"codigo\": \"12347\",\n    \"descricao\": \"Compra 1\",\n    \"rg\": \"12\",\n    \"produtos\": [\n        {\n            \"descricao\": \"Caneta\",\n            \"quantidade\": 1\n        },\n        {\n            \"descricao\": \"Lapis\",\n            \"quantidade\": 1\n        }\n    ]\n}"
+							"raw": "{\n    \"codigo\": \"12349\",\n    \"descricao\": \"Compra 3\",\n    \"rg\": \"12\",\n    \"produtos\": [\n        {\n            \"descricao\": \"Caneta\",\n            \"quantidade\": 5\n        },\n        {\n            \"descricao\": \"Lapis\",\n            \"quantidade\": 2\n        }\n    ]\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/api/pedido/add",

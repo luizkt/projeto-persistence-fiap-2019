@@ -1,5 +1,6 @@
 package br.com.fiap.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +27,7 @@ import br.com.fiap.entity.ItensPK;
 import br.com.fiap.entity.Pedido;
 import br.com.fiap.entity.Produto;
 import br.com.fiap.model.PedidoJson;
+import br.com.fiap.model.ProdutoJson;
 import br.com.fiap.repository.ClienteRepository;
 import br.com.fiap.repository.ItensRepository;
 import br.com.fiap.repository.PedidoRepository;
@@ -99,10 +101,69 @@ public class PedidoService {
 	}
 
 	@Transactional(readOnly = true)
-	@RequestMapping(path = "/cliente/{cliente}", method = RequestMethod.GET)
+	@RequestMapping(path = "/cliente/{rg}", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Pedido> findAllOrdersOfACostumer(@PathVariable String rg) {
-		return pedidoRepository.findAllOrdersOfACostumer(Integer.parseInt(rg));
+	public ResponseEntity<List<PedidoJson>> findAllOrdersOfACostumer(@PathVariable String rg) {
+		
+		Cliente cliente = clienteRepository.findByDocument(rg).get(0);
+		
+		List<Pedido> pedidos = pedidoRepository.findAllOrdersOfACostumer(cliente);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString());
+		
+		List<PedidoJson> pedidosJson = new ArrayList<>();
+	    for (Pedido pedido : pedidos) {
+	        PedidoJson pedidoJson = new PedidoJson();
+	        pedidoJson.setCodigo(pedido.getCodigo());
+	        pedidoJson.setDescricao(pedido.getDesc());
+	        pedidoJson.setRg(pedido.getCliente().getRg());
+	        
+	        List<ProdutoJson> produtosJson = new ArrayList<>();
+	        
+	        pedido.getItens().forEach(item -> {
+	        	Produto produto = item.getProdutoPk();
+	        	ProdutoJson produtoJson = new ProdutoJson();
+	        	
+	        	produtoJson.setCodigo(produto.getCodigo());
+	        	produtoJson.setDescricao(produto.getDesc());
+	        	produtoJson.setPreco(produto.getPreco());
+	        	produtoJson.setQuantidade(item.getQuantidade());
+	        	
+	        	produtosJson.add(produtoJson);
+	        	
+	        });
+	        
+	        pedidoJson.setProdutos(produtosJson);
+	        pedidosJson.add(pedidoJson);
+	    }
+		
+		return new ResponseEntity<>(pedidosJson, headers, HttpStatus.OK);
+	}
+	
+	@Transactional(readOnly = true)
+	@RequestMapping(path = "/codigo/{codigo}", method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<String> findOrderByCode(@PathVariable String codigo) {
+		
+		Pedido pedido = pedidoRepository.findOrderByCode(codigo).get(0);
+		
+		PedidoJson pedidoJson = new PedidoJson();
+		
+		pedidoJson.setCodigo(pedido.getCodigo());
+		pedidoJson.setDescricao(pedido.getDesc());
+		pedidoJson.setRg(pedido.getCliente().getRg());
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString());
+		String body = "{"
+							+ "\"codigo\":\"" + pedidoJson.getCodigo() + "\","
+							+ "\"descricao\":\"" + pedidoJson.getDescricao() + "\","
+							+ "\"rg\":\"" + pedidoJson.getRg() + "\""
+					+ "}";
+
+		return new ResponseEntity<>(body, headers, HttpStatus.OK);
+		
 	}
 
 	// @Transactional
