@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fiap.entity.node.Pedido;
-import br.com.fiap.repository.PedidoRepositoryImpl;
+import br.com.fiap.repository.PedidoRepository;
 
 @Component
 public class PedidoService {
 
 	@Autowired
-	private PedidoRepositoryImpl pedidoRepository;
+	private PedidoRepository pedidoRepository;
 
 	@Transactional
 	public void add(Pedido pedido) {

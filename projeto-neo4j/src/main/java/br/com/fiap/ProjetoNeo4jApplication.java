@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 
 import br.com.fiap.entity.node.Cliente;
-import br.com.fiap.repository.ClienteRepositoryImpl;
+import br.com.fiap.repository.ClienteRepository;
 
 @SpringBootApplication
 @EntityScan("br.com.fiap.entity")
@@ -21,7 +21,7 @@ public class ProjetoNeo4jApplication {
 	}
 
 	@Bean
-	CommandLineRunner demo(final ClienteRepositoryImpl clienteRepository) {
+	CommandLineRunner demo(final ClienteRepository clienteRepository) {
 		return new CommandLineRunner() {
 			public void run(String... args) throws Exception {
 
