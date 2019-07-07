@@ -16,6 +16,7 @@
 
 ## Modelo do Banco de Dados
 
+![DiagramaRelacionamento](DiagramaRelacionamento.jpg)
 
 ## Requisitos
 
