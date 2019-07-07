@@ -12,10 +12,10 @@ import br.com.fiap.entity.node.Pedido;
 @Repository
 public interface PedidoRepository extends CrudRepository<Pedido, Integer>{
 
-	@Query("")
+	@Query("MATCH (e:Pedido) WHERE e.ID = :idcliente RETURN e")
 	public List<Pedido> findAllOrdersOfACostumer(@Param("idcliente") Integer idcliente);
 	
-	@Query("")
+	@Query("MATCH (e:Pedido) WHERE e.CODIGO = :codigo RETURN e")
 	public List<Pedido> findOrderByCode(@Param("codigo") Integer codigo);
 	
 	
