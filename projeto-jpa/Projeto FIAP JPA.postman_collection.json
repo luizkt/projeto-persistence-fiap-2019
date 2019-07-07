@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "379193b1-b488-4187-86fd-5471e886e22b",
+		"name": "Projeto FIAP JPA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "GET - Busca Cliente RG",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/cliente/rg/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cliente",
+								"rg",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET - Busca Cliente Nome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/cliente/nome/Luiz",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cliente",
+								"nome",
+								"Luiz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET - Busca Todos Clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/cliente/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cliente",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST - Adiciona Cliente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"Luiz\",\n\t\"rg\": \"12\",\n\t\"endereco\": {\n\t\t\"rua\": \"Avenida do Estado\",\n\t\t\"bairro\": \"Cambuci\",\n\t\t\"numero\": \"1000\",\n\t\t\"cidade\": \"São Paulo\",\n\t\t\"estado\": \"SP\",\n\t\t\"cep\": \"12345001\",\n\t\t\"pais\": \"Brasil\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/cliente/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cliente",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "GET - Busca Produto Nome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/produto/nome/Caneta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"produto",
+								"nome",
+								"Caneta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET - Busca Todos Produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/produto/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"produto",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST - Adiciona Produto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"codigo\": \"12347\",\n\t\"descricao\": \"Caneta\",\n\t\"preco\": 10.09,\n\t\"quantidade\": 10\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/produto/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"produto",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "GET - Busca Pedido Codigo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET - Busca Todos Pedidos Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST - Adiciona Pedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"codigo\": \"12347\",\n    \"descricao\": \"Compra 1\",\n    \"rg\": \"12\",\n    \"produtos\": [\n        {\n            \"descricao\": \"Caneta\",\n            \"quantidade\": 1\n        },\n        {\n            \"descricao\": \"Lapis\",\n            \"quantidade\": 1\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/pedido/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pedido",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
