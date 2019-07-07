@@ -6,6 +6,7 @@
 * [Modelo do Banco de Dados](#modelo-do-banco-de-dados)
 * [Requisitos](#requisitos)
 * [Bando de dados - MySQL Docker](#banco-de-dados---mysql-docker)
+* [Banco de Dados - Neo4J Docker](#banco-de-dados---neo4j-docker)
 
 ## Integrantes
 
@@ -36,4 +37,11 @@ Trata-se de um sistema de cadastro de produtos e pedidos em um portal de e-comme
 * Linux
 ``` sh
 docker run -p 3306:3306 --name fiap-mysql -e MYSQL_ROOT_PASSWORD=fiap2019 -d mysql:8 mysqld --default-authentication-plugin=mysql_native_password
+```
+
+## Banco de Dados - Neo4J Docker
+
+* Linux
+``` sh
+docker run --publish=7474:7474 --publish=7687:7687 --volume=$HOME/neo4j/data:/data neo4j
 ```
