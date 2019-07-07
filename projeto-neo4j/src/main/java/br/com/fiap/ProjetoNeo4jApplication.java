@@ -1,4 +1,4 @@
-package br.com.fiap.neo4j.projetoneo4j;
+package br.com.fiap;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,7 +28,7 @@ public class ProjetoNeo4jApplication {
 				// clienteRepository.deleteAll();
 
 				Cliente p1 = new Cliente("asd", "123");
-//				p1.setClienteId(1);
+				// p1.setClienteId(1);
 				// Cliente p2 = new Cliente();
 				// Cliente p3 = new Cliente();
 
@@ -40,9 +40,9 @@ public class ProjetoNeo4jApplication {
 				// }
 				// });
 
-//				Endereco end = new Endereco("av alguma coisa", "123");
+				// Endereco end = new Endereco("av alguma coisa", "123");
 
-//				p1.resideEm(end);
+				// p1.resideEm(end);
 
 				clienteRepository.save(p1);
 				// clienteRepository.save(p2);
