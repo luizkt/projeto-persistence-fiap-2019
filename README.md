@@ -16,7 +16,10 @@
 
 ## Modelo do Banco de Dados
 
-![DiagramaRelacionamento](DiagramaRelacionamento.jpg)
+<img src="DiagramaRelacionamento.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />
+<br>
 
 ## Requisitos
 
