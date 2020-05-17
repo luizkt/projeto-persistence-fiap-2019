@@ -13,12 +13,11 @@ import br.com.fiap.entity.node.Cliente;
 @Repository
 public interface ClienteRepository extends CrudRepository<Cliente, Long> {
 
-	@Query("MATCH (c:Cliente) WHERE c.nome = {nome} RETURN c")
-//	@Query("SELECT e FROM CLIENTE p WHERE e.NOME = :nome")
+	@Query("MATCH (c:Cliente {nome={0}}) WHERE c.nome = {nome} RETURN c")
+	// @Query("SELECT e FROM CLIENTE p WHERE e.NOME = :nome")
 	public List<Cliente> findByNome(@Param("nome") String nome);
-	
-	@Query("MATCH (c:Cliente) WHERE c.rg = {rg} RETURN c")
-	public List<Cliente> findByRg(@Param("rg")  String rg);
 
-	
+	@Query("MATCH (c:Cliente) WHERE c.rg = '{0}' RETURN c")
+	public List<Cliente> findByRg(String rg);
+
 }

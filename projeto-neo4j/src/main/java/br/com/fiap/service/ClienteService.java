@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -100,14 +101,14 @@ public class ClienteService {
 	@Transactional(readOnly = true)
 	@RequestMapping(value = "/nome/{nome}", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Cliente> findByNome(String nome) {
+	public List<Cliente> findByNome(@PathVariable String nome) {
 		return clienteRepository.findByNome(nome);
 	}
 
 	@Transactional(readOnly = true)
 	@RequestMapping(value = "/rg/{rg}", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Cliente> findByRg(String rg) {
+	public Iterable<Cliente> findByRg(@PathVariable String rg) {
 		return clienteRepository.findByRg(rg);
 	}
 }
